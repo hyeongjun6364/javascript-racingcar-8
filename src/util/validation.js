@@ -24,8 +24,6 @@ export const carNameValidation = (userInput) => {
 };
 
 export const tryCountValidation = (userInput) => {
-  //const tryCount = Number(userInput);
-  //const isNumber = typeof userInput === 'number' && !isNaN(userInput);
   const isNumber = !isNaN(userInput);
   const invalidRange = Number(userInput) <= 30 && Number(userInput) > 0;
   if (!isNumber) {
