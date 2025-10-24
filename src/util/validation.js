@@ -8,17 +8,26 @@ export const carNameValidation = (userInput) => {
   const hasDuplicateNames = new Set(carNames).size !== carNames.length;
   const isValidLength = carNames.length >= 2;
   if (hasDuplicateNames) {
-    throw new Error(ERROR_MESSAGES.DUPLICATE_CAR_NAME);
+    throw new Error(ERROR_MESSAGES.dumplicateCarName);
   }
   if (hasEmptyName) {
-    throw new Error(ERROR_MESSAGES.EMPTY_CAR_NAME);
+    throw new Error(ERROR_MESSAGES.emptyCarName);
   }
 
   if (!isValidLength) {
-    throw new Error(ERROR_MESSAGES.INVALID_CAR_NAME_LENGTH);
+    throw new Error(ERROR_MESSAGES.invalidCarNameLength);
   }
 
   if (!isValidCarName) {
-    throw new Error(ERROR_MESSAGES.INVALID_CAR_NAME);
+    throw new Error(ERROR_MESSAGES.invalidCarNameRange);
+  }
+};
+
+export const tryCountValidation = (userInput) => {
+  //const tryCount = Number(userInput);
+  //const isNumber = typeof userInput === 'number' && !isNaN(userInput);
+  const isNumber = !isNaN(userInput);
+  if (!isNumber) {
+    throw new Error(ERROR_MESSAGES.invalidTryCount);
   }
 };
