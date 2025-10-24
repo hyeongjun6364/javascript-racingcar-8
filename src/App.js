@@ -17,6 +17,8 @@ class App {
   startRacing() {
     for (let i = 0; i < this.#tryCount; i++) {
       this.moveCars();
+      this.printRaceStatus();
+      this.printResult('\n');
     }
   }
 
@@ -24,6 +26,11 @@ class App {
     this.#cars.forEach((car) => {
       car.move();
     });
+  }
+
+  printRaceStatus() {
+    const status = this.#cars.map((car) => `${car.name}: ${'-'.repeat(car.distance)}`).join('\n');
+    this.printResult(status);
   }
 
   async userInput(content) {
