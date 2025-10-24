@@ -12,6 +12,7 @@ class App {
     this.setCars(carNames);
     this.setTryCount(tryCount);
     this.startRacing();
+    this.winnerResult();
   }
 
   startRacing() {
@@ -29,8 +30,18 @@ class App {
   }
 
   printRaceStatus() {
-    const status = this.#cars.map((car) => `${car.name}: ${'-'.repeat(car.distance)}`).join('\n');
+    const status = this.#cars.map((car) => `${car.name} : ${'-'.repeat(car.distance)}`).join('\n');
     printResult(status + '\n');
+  }
+
+  winnerResult() {
+    const winners = this.getWinners();
+    printResult(MESSAGES.printFinalWinner + winners.map((car) => car.name).join(', '));
+  }
+
+  getWinners() {
+    const maxDistance = Math.max(...this.#cars.map((car) => car.distance));
+    return this.#cars.filter((car) => car.distance === maxDistance);
   }
 
   setCars(carNames) {
