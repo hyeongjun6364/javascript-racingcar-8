@@ -15,4 +15,5 @@ export const ERROR_MESSAGES = Object.freeze({
   invalidCarNameLength: '[ERROR] 자동차는 최소 2대 이상이어야 합니다.',
   emptyCarName: '[ERROR] 빈 자동차 이름이 존재합니다.',
   invalidTryCount: '[ERROR] 시도할 횟수는 숫자여야 합니다.',
+  invalidTryCountRange: '[ERROR] 시도할 횟수는 1 이상 30 이하의 숫자여야 합니다.',
 });
