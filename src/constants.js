@@ -12,4 +12,6 @@ export const MESSAGES = Object.freeze({
 export const ERROR_MESSAGES = Object.freeze({
   INVALID_CAR_NAME: '[ERROR] 자동차 이름은 1자 이상 5자 이하이어야 합니다.',
   DUPLICATE_CAR_NAME: '[ERROR] 중복된 자동차 이름이 존재합니다.',
+  INVALID_CAR_NAME_LENGTH: '[ERROR] 자동차는 최소 2대 이상이어야 합니다.',
+  EMPTY_CAR_NAME: '[ERROR] 빈 자동차 이름이 존재합니다.',
 });
