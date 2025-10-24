@@ -27,13 +27,13 @@ class App {
   }
 
   moveCars() {
-    this.#cars.forEach((car) => {
+    this.getCars().forEach((car) => {
       car.move();
     });
   }
 
   printRaceStatus() {
-    const status = this.#cars
+    const status = this.getCars()
       .map((car) => `${car.getName()} : ${'-'.repeat(car.getDistance())}`)
       .join('\n');
     printResult(status + '\n');
@@ -45,8 +45,8 @@ class App {
   }
 
   getWinners() {
-    const maxDistance = Math.max(...this.#cars.map((car) => car.getDistance()));
-    return this.#cars.filter((car) => car.getDistance() === maxDistance);
+    const maxDistance = Math.max(...this.getCars().map((car) => car.getDistance()));
+    return this.getCars().filter((car) => car.getDistance() === maxDistance);
   }
 
   setCars(carNames) {
@@ -55,6 +55,10 @@ class App {
 
   setTryCount(count) {
     this.#tryCount = count;
+  }
+
+  getCars() {
+    return this.#cars;
   }
 }
 
