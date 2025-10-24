@@ -1,24 +1,24 @@
-import { Console, Random } from '@woowacourse/mission-utils';
 import { MESSAGES } from './constants.js';
 import Car from './Car.js';
+import { printResult, userInput } from './util/console.js';
 
 class App {
   #cars;
   #tryCount;
 
   async run() {
-    const carNames = await this.userInput(MESSAGES.userInput);
-    const tryCount = await this.userInput(MESSAGES.userInputTryCount);
+    const carNames = await userInput(MESSAGES.userInput);
+    const tryCount = await userInput(MESSAGES.userInputTryCount);
     this.setCars(carNames);
     this.setTryCount(tryCount);
     this.startRacing();
   }
 
   startRacing() {
+    printResult(MESSAGES.printRunResult);
     for (let i = 0; i < this.#tryCount; i++) {
       this.moveCars();
       this.printRaceStatus();
-      this.printResult('\n');
     }
   }
 
@@ -30,15 +30,7 @@ class App {
 
   printRaceStatus() {
     const status = this.#cars.map((car) => `${car.name}: ${'-'.repeat(car.distance)}`).join('\n');
-    this.printResult(status);
-  }
-
-  async userInput(content) {
-    return await Console.readLineAsync(content);
-  }
-
-  printResult(content) {
-    Console.print(content);
+    printResult(status + '\n');
   }
 
   setCars(carNames) {
