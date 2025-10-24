@@ -30,18 +30,20 @@ class App {
   }
 
   printRaceStatus() {
-    const status = this.#cars.map((car) => `${car.name} : ${'-'.repeat(car.distance)}`).join('\n');
+    const status = this.#cars
+      .map((car) => `${car.getName()} : ${'-'.repeat(car.getDistance())}`)
+      .join('\n');
     printResult(status + '\n');
   }
 
   winnerResult() {
     const winners = this.getWinners();
-    printResult(MESSAGES.printFinalWinner + winners.map((car) => car.name).join(', '));
+    printResult(MESSAGES.printFinalWinner + winners.map((car) => car.getName()).join(', '));
   }
 
   getWinners() {
-    const maxDistance = Math.max(...this.#cars.map((car) => car.distance));
-    return this.#cars.filter((car) => car.distance === maxDistance);
+    const maxDistance = Math.max(...this.#cars.map((car) => car.getDistance()));
+    return this.#cars.filter((car) => car.getDistance() === maxDistance);
   }
 
   setCars(carNames) {
