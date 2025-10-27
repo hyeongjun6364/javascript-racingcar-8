@@ -5,9 +5,9 @@ describe('우승자 선정 로직 테스트', () => {
     const race = new Race('pobi,crong,honux', 5);
 
     const cars = race.getCars();
-    cars[0].distance = 3;
-    cars[1].distance = 5;
-    cars[2].distance = 2;
+    cars[0].setDistance(3);
+    cars[1].setDistance(5);
+    cars[2].setDistance(2);
 
     const winners = race.getWinners();
 
@@ -19,9 +19,9 @@ describe('우승자 선정 로직 테스트', () => {
     const race = new Race('pobi,crong,honux', 5);
 
     const cars = race.getCars();
-    cars[0].distance = 5;
-    cars[1].distance = 5;
-    cars[2].distance = 3;
+    cars[0].setDistance(5);
+    cars[1].setDistance(5);
+    cars[2].setDistance(3);
 
     const winners = race.getWinners();
 
